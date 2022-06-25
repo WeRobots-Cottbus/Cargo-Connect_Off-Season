@@ -23,5 +23,6 @@ def DisplayText(text:str, coord:tuple[int,int]=(0,0), clear:bool=False, **kwargs
     if clear: Brick.screen.clear()
     Brick.screen.draw_text(coord[0], coord[1], text, **kwargs)
 
+#gyro geradeaus
 def GyroDrive(origin:int=0) -> None:
     pass
