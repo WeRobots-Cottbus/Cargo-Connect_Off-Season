@@ -14,8 +14,7 @@ from botconfig import *
 from toolkit import *
 
 PrgName = os.path.basename(__file__).removesuffix(".py")
-#kommentar
-#kommentar2
+
 def run():
     Base.settings(225,225,100,100)
     Base.straight(340)
