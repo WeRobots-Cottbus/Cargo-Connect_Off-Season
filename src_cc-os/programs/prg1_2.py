@@ -13,8 +13,6 @@ sys.path.insert(0, os.path.abspath("../"))
 from botconfig import *
 from toolkit import *
 
-#ihasdub
-
 PrgName = os.path.basename(__file__).removesuffix(".py")
 
 def run():

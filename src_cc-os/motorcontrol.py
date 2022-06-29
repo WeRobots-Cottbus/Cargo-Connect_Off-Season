@@ -13,12 +13,12 @@ from toolkit import *
 mtr_lst = [(MotorTop, MotorFront), (MotorLeft, MotorRight)]
 mtr_len = len(mtr_lst)
 
-def run():
+def loop():
     speed = 300
     mtr_sel = 0
     while True:
         # select motors
-        if Button.CENTER in Brick.buttons.pressed(): mtr_sel = 0 if mtr_sel else 1
+        if Button.CENTER in Brick.buttons.pressed(): mtr_sel = not mtr_sel
         
         # run or stop motors
         elif Button.UP    in Brick.buttons.pressed(): mtr_lst[mtr_sel][0].run(+speed)
@@ -27,8 +27,6 @@ def run():
         elif Button.RIGHT in Brick.buttons.pressed(): mtr_lst[mtr_sel][1].run(+speed)
         else:
             mtr_lst[mtr_sel][0].stop()
-            mtr_lst[mtr_sel][0].stop()
-            mtr_lst[mtr_sel][1].stop()
             mtr_lst[mtr_sel][1].stop()            
 
         # update display if center button is pressed
@@ -41,4 +39,4 @@ def run():
                 DisplayText("<- MotorRight ->", (6,2))                
 
 if __name__ == "__main__":
-    run()
+    loop()

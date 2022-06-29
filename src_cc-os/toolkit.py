@@ -23,6 +23,25 @@ def DisplayText(text:str, coord:tuple[int,int]=(0,0), clear:bool=False, **kwargs
     if clear: Brick.screen.clear()
     Brick.screen.draw_text(coord[0], coord[1], text, **kwargs)
 
-#gyro geradeaus
-def GyroDrive(origin:int=0) -> None:
-    pass
+def DisplayTextMatrix(text:str, clear:bool=False, **kwargs) -> None:
+    if clear: Brick.screen.clear()
+    [ DisplayText(line, (i,0), False, **kwargs) for i, line in enumerate(text.split("\n")[:12]) ]
+
+# gyro geradeaus
+def GyroDrive(distance:int, speed:float=300, target:float=0, tolerance:float=0, **kwargs) -> None:
+    start_distance = Base.distance()
+
+    MotorLeft.run(speed)
+    MotorRight.run(speed)
+    
+    while Base.distance() - start_distance <= distance:
+        angle = Gyro.angle()
+
+        if   angle < target - tolerance: MotorLeft.run( speed + angle - target)
+        elif angle > target + tolerance: MotorRight.run(speed + angle - target)
+        else: 
+            MotorLeft.run(speed)
+            MotorRight.run(speed)
+    
+    MotorLeft.stop(speed, **kwargs)
+    MotorRight.stop(speed, **kwargs)

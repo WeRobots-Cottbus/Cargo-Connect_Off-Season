@@ -17,14 +17,19 @@ prg_len = len(prg_lst)
 def loop():
     prg_sel = 0
     while True:
-        # select and run program
+        # select program
         if   Button.LEFT   in Brick.buttons.pressed(): prg_sel = (prg_sel - 1) % prg_len
         elif Button.RIGHT  in Brick.buttons.pressed(): prg_sel = (prg_sel + 1) % prg_len
-        elif Button.CENTER in Brick.buttons.pressed(): prg_lst[prg_sel].run()
 
-        # update display if any button is pressed
-        if any(Brick.buttons.pressed()):
+        # run program
+        elif Button.CENTER in Brick.buttons.pressed():
+            DisplayText("is running", (7,5))
+            prg_lst[prg_sel].run()
             DisplayText(prg_lst[prg_sel].PrgName, (5,7), True)
+
+    # update display if any button is pressed
+    if any(Brick.buttons.pressed()):
+        DisplayText(prg_lst[prg_sel].PrgName, (5,7), True)
 
 if __name__ == "__main__":
     loop()
