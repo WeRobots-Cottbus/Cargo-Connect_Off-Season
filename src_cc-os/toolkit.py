@@ -23,9 +23,38 @@ def DisplayText(text:str, coord:tuple[int,int]=(0,0), clear:bool=False, **kwargs
     if clear: Brick.screen.clear()
     Brick.screen.draw_text(coord[0], coord[1], text, **kwargs)
 
-def DisplayTextMatrix(text:str, clear:bool=False, **kwargs) -> None:
+GridArray_Debug = [
+    ["0,0               21,0"],
+    ["                      "],
+    ["                      "],
+    ["                      "],
+    ["                      "],
+    ["      Grid Array      "],
+    ["  for text placement  "],
+    ["                      "],
+    ["                      "],
+    ["                      "],
+    ["                      "],
+    ["0,11             21,11"]
+]
+GridArray_Box = [
+    ["+--------------------+"],
+    ["|                    |"],
+    ["|                    |"],
+    ["|                    |"],
+    ["|                    |"],
+    ["|                    |"],
+    ["|                    |"],
+    ["|                    |"],
+    ["|                    |"],
+    ["|                    |"],
+    ["|                    |"],
+    ["+--------------------+"]
+]
+def DisplayTextMatrix(text:list|str, clear:bool=False, **kwargs) -> None:
     if clear: Brick.screen.clear()
-    [ DisplayText(line, (i,0), False, **kwargs) for i, line in enumerate(text.split("\n")[:12]) ]
+    if type(text) is str: text = text.split("\n")
+    [ DisplayText(line, (i,0), False, **kwargs) for i, line in enumerate(text[:12]) ]
 
 # gyro geradeaus
 def GyroDrive(distance:int, speed:float=300, target:float=0, tolerance:float=0, **kwargs) -> None:
