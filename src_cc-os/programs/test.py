@@ -15,5 +15,4 @@ from toolkit import *
 
 DisplayTextMatrix(GridArray_Debug, True)
 
-while True:
-    pass
+while True: pass
