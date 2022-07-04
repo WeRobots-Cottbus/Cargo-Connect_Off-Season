@@ -29,9 +29,9 @@ def loop():
             prg_lst[prg_sel].run()
             DisplayText(GridArray_Box[1], (0,6))
 
-    # update display if any button is pressed
-    if any(Brick.buttons.pressed()):
-        DisplayText(f"|       {prg_lst[prg_sel].PrgName}       |", (0,4))
+        # update display if any button is pressed
+        if any(Brick.buttons.pressed()):
+            DisplayText(f"|       {prg_lst[prg_sel].PrgName}       |", (0,4))
 
 if __name__ == "__main__":
     loop()
