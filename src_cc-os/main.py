@@ -26,7 +26,7 @@ def loop():
         elif Button.CENTER in Brick.buttons.pressed():
             DisplayText("is running", (0,6))
             prg_lst[prg_sel].run()
-            DisplayText(GridArray_Box[1], (0,6))
+            DisplayText("", (0,6))
 
         # update display if any button is pressed
         if any(Brick.buttons.pressed()):
