@@ -31,7 +31,7 @@ def loop():
 
         # update display if any button is pressed
         if any(Brick.buttons.pressed()):
-            DisplayText(f"|       {prg_lst[prg_sel].PrgName}       |", (0,4))
+            DisplayText("|       {}       |".format(prg_lst[prg_sel].PrgName), (0,4))
 
 if __name__ == "__main__":
     loop()
