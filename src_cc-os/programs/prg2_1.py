@@ -8,12 +8,12 @@ from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
 import sys, os
-sys.path.insert(0, os.path.abspath("../"))
+sys.path.insert(0, "/home/robot/src_cc-os")
 
 from botconfig import *
 from toolkit import *
 
-PrgName = os.path.basename(__file__).removesuffix(".py")
+PrgName = __file__.split("/")[-1][:-3]
 
 def run():
     Base.settings(300,300,250,250)

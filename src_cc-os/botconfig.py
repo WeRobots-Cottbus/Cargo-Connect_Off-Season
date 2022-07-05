@@ -9,10 +9,10 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 Brick = EV3Brick()
 
-MotorFront = Motor(Port.A)
+MotorFront = Motor(Port.D)
 MotorLeft  = Motor(Port.B)
 MotorRight = Motor(Port.C)
-MotorTop   = Motor(Port.D)
+MotorTop   = Motor(Port.A)
 
 Gyro       = GyroSensor( Port.S1)
 ColorLeft  = ColorSensor(Port.S3)
