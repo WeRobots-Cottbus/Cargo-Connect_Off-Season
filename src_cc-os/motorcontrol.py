@@ -36,7 +36,10 @@ def loop():
                 DisplayText("<- MotorFront ->", (6,2))
             else:
                 DisplayText("/\ MotorLeft  \/", (4,2), True)
-                DisplayText("<- MotorRight ->", (6,2))                
+                DisplayText("<- MotorRight ->", (6,2))
+        
+        # ui delay
+        wait(250)
 
 if __name__ == "__main__":
     loop()

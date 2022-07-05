@@ -14,5 +14,4 @@ PrgName = __file__.split("/")[-1][:-3]
 
 import prg1_1
 
-
 prg1_1.run()
