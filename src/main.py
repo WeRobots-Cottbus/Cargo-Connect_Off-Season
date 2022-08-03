@@ -9,9 +9,9 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 from botconfig import *
 from toolkit import *
-from programs import prg1_1, prg1_2, prg2_1, prg2_2, prg3_1
+from programs import prgN_P
 
-prg_lst = [prg1_1, prg1_2, prg2_1, prg2_2, prg3_1]
+prg_lst = [prgN_P]
 prg_len = len(prg_lst)
 
 prg_prev = lambda x: (x - 1) % prg_len
@@ -19,11 +19,11 @@ prg_next = lambda x: (x + 1) % prg_len
 
 def loop():
     prg_sel = 0
-    DisplayText(prg_lst[prg_sel].PrgName, (0,4),True)
+    DisplayText(prg_lst[prg_sel].PrgName, (0,4), True)
     while True:
         # select program
-        if   Button.LEFT   in Brick.buttons.pressed(): prg_sel = prg_prev(prg_sel)
-        elif Button.RIGHT  in Brick.buttons.pressed(): prg_sel = prg_next(prg_sel)
+        if   Button.LEFT  in Brick.buttons.pressed(): prg_sel = prg_prev(prg_sel)
+        elif Button.RIGHT in Brick.buttons.pressed(): prg_sel = prg_next(prg_sel)
 
         # run program
         elif Button.CENTER in Brick.buttons.pressed():
@@ -33,7 +33,7 @@ def loop():
 
         # update display if any button is pressed
         if any(Brick.buttons.pressed()):
-            DisplayText(prg_lst[prg_sel].PrgName, (0,4),True)
+            DisplayText(prg_lst[prg_sel].PrgName, (0,4), True)
 
         # ui delay
         wait(250)

@@ -7,15 +7,18 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
-Brick = EV3Brick()
+import sys, os
+sys.path.insert(0, "/home/robot/src")
 
-MotorTop   = Motor(Port.A)
-MotorLeft  = Motor(Port.B)
-MotorRight = Motor(Port.C)
-MotorFront = Motor(Port.D)
+from botconfig import *
+from toolkit import *
 
-Gyro       = GyroSensor( Port.S1)
-ColorLeft  = ColorSensor(Port.S3)
-ColorRight = ColorSensor(Port.S4)
+PrgName = __file__.split("/")[-1][:-3]
 
-Base = DriveBase(MotorLeft, MotorRight, 57, 154)
+def run():
+    # Programm Code
+    Base.settings(225,225,100,100)
+    Base.straight(340)
+
+if __name__ == "__main__":
+    run()
